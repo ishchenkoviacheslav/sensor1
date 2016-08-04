@@ -76,7 +76,7 @@ namespace sensor1
                 //textBox.Text += item.Z;
                 textBox.Text += "\n";
             }
-            if(arrayXYZ[0].X > arrayXYZ[1].X)
+            if(arrayXYZ[0].X > arrayXYZ[1].X)//добавление первого если он больше чем второй
             {
                 listTop.Add(arrayXYZ[0]);
             }
@@ -90,9 +90,9 @@ namespace sensor1
                     }
                 }
             }
-            if ()
+            if (arrayXYZ[arrayXYZ.Length-1].X > arrayXYZ[arrayXYZ.Length - 2].X) // добавление последнего если он больше чем предпоследний
             {
-
+                listTop.Add(arrayXYZ[arrayXYZ.Length - 1]);
             }
             foreach (AccelXYZ item in listTop)
             {
