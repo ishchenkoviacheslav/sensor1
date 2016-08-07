@@ -100,5 +100,13 @@ namespace sensor1
                 textBoxTop.Text += "\n";
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+            var listAllPls = from i in listTopBot orderby i.X ascending select i.X;
+            double min = listAllPls.First();
+            textBox.Text = (min* -1).ToString();
+        }
     }
 }

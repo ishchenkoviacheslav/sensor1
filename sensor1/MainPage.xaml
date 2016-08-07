@@ -5,14 +5,15 @@
     xmlns:local="using:sensor1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="353" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-        <Button x:Name="startBtn" Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="75" Width="165" Background="Lime" Click="startBtn_Click"/>
-        <Button x:Name="stopBtn" Content="Stop" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Height="75" Width="165" Background="Red" Click="stopBtn_Click"/>
-        <Button x:Name="ShowBtn" Content="Show" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="103" Width="340" Click="ShowBtn_Click"/>
-        <TextBox x:Name="textBoxTop" HorizontalAlignment="Left" Margin="185,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="353" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="267" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <Button x:Name="startBtn" Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="75" Width="100" Background="Lime" Click="startBtn_Click"/>
+        <Button x:Name="stopBtn" Content="Stop" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Height="75" Width="100" Background="Red" Click="stopBtn_Click"/>
+        <Button x:Name="ShowBtn" Content="Show" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="50" Width="340" Click="ShowBtn_Click"/>
+        <TextBox x:Name="textBoxTop" HorizontalAlignment="Left" Margin="185,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="267" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="buttonProc" Content="makeProcent" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Height="75" Width="130" Click="button_Click"/>
 
     </Grid>
 </Page>
