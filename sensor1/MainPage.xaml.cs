@@ -106,10 +106,19 @@ namespace sensor1
         {
 
             var listAllSorted = from i in listTopBot orderby i.X ascending select i.X;
-            double min = (listAllSorted.First()*-1); //минимальное минусовое знач.(уже переведенное в плюсовое) для того чтобы знать на сколько поднимать каждое значени
-            double max = (listAllSorted.Last() + min);//максимальная вершина после поднятия ТОЛЬКо её значения. Поднятие всех значений происходит ниже.
-            textBox.Text = min.ToString();
+            double minFirst = listAllSorted.First();
+            double min = 0;
+            if (minFirst<0)
+            {
+                min = (minFirst*-1); //минимальное минусовое знач.(уже переведенное в плюсовое) для того чтобы знать на сколько поднимать каждое значени
+            }
+            else
+            {
+                min = minFirst;
+            }
             textBoxTop.Text = "";
+            textBox.Text = min.ToString();
+            double max = (listAllSorted.Last() + min);//максимальная вершина после поднятия ТОЛЬКо её значения. Поднятие всех значений происходит ниже.
             foreach (AccelXYZ item in listTopBot) // "поднятие" всех значений в плюсовое состояние
             {
                 item.X = item.X + min;
@@ -125,7 +134,7 @@ namespace sensor1
                 AccelXYZ xyz = new AccelXYZ() { X = item.X/OneProc};//пересохранение в такую же коллекцию только уже в процентах ПОКА ТОЛЬКО ДЛЯ Х
                 listTopBotProc.Add(xyz);
             }
-            foreach (AccelXYZ item in listTopBotProc)
+            foreach (AccelXYZ item in listTopBotProc)//перезапись текстбокса но уже процентами
             {
                 textBoxTop.Text += item.X;
                 //textBox.Text += item.Y;
