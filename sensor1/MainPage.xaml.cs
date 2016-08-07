@@ -99,14 +99,40 @@ namespace sensor1
                 //textBox.Text += item.Z;
                 textBoxTop.Text += "\n";
             }
+            listXYZ = null; //больше ВСЕ значения не нужны
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            var listAllPls = from i in listTopBot orderby i.X ascending select i.X;
-            double min = listAllPls.First();
-            textBox.Text = (min* -1).ToString();
+            var listAllSorted = from i in listTopBot orderby i.X ascending select i.X;
+            double min = (listAllSorted.First()*-1); //минимальное минусовое знач.(уже переведенное в плюсовое) для того чтобы знать на сколько поднимать каждое значени
+            double max = (listAllSorted.Last() + min);//максимальная вершина после поднятия ТОЛЬКо её значения. Поднятие всех значений происходит ниже.
+            textBox.Text = min.ToString();
+            textBoxTop.Text = "";
+            foreach (AccelXYZ item in listTopBot) // "поднятие" всех значений в плюсовое состояние
+            {
+                item.X = item.X + min;
+                //textBoxTop.Text += item.X;
+                ////textBox.Text += item.Y;
+                ////textBox.Text += item.Z;
+                //textBoxTop.Text += "\n";
+            }
+            double OneProc = max / 100;
+            List<AccelXYZ> listTopBotProc = new List<AccelXYZ>();
+            foreach (AccelXYZ item in listTopBot)
+            {
+                AccelXYZ xyz = new AccelXYZ() { X = item.X/OneProc};//пересохранение в такую же коллекцию только уже в процентах ПОКА ТОЛЬКО ДЛЯ Х
+                listTopBotProc.Add(xyz);
+            }
+            foreach (AccelXYZ item in listTopBotProc)
+            {
+                textBoxTop.Text += item.X;
+                //textBox.Text += item.Y;
+                //textBox.Text += item.Z;
+                textBoxTop.Text += "\n";
+            }
+
         }
     }
 }
