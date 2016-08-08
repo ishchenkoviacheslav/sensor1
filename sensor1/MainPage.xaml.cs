@@ -25,6 +25,8 @@ namespace sensor1
         private Accelerometer _accelerometer;
         List<AccelXYZ> listXYZ = null;
         List<AccelXYZ> listTopBot = null;
+        List<AccelXYZ> listTopBotProc = null;
+        List<int> listReport = null;
         public MainPage()
         {
             this.InitializeComponent();
@@ -128,20 +130,66 @@ namespace sensor1
                 //textBoxTop.Text += "\n";
             }
             double OneProc = max / 100;
-            List<AccelXYZ> listTopBotProc = new List<AccelXYZ>();
+            listTopBotProc = new List<AccelXYZ>();
             foreach (AccelXYZ item in listTopBot)
             {
                 AccelXYZ xyz = new AccelXYZ() { X = item.X/OneProc};//пересохранение в такую же коллекцию только уже в процентах ПОКА ТОЛЬКО ДЛЯ Х
                 listTopBotProc.Add(xyz);
             }
+            int pyat = 0;
+            int dvadzat = 0;
+            int sorok = 0;
+            int sestdesyat = 0;
+            int vosemdesyat = 0;
+            int devanostoPyat = 0;
+            int sto = 0;
             foreach (AccelXYZ item in listTopBotProc)//перезапись текстбокса но уже процентами
             {
                 textBoxTop.Text += item.X;
                 //textBox.Text += item.Y;
                 //textBox.Text += item.Z;
                 textBoxTop.Text += "\n";
+                if(item.X <= 5)
+                {
+                    pyat++;
+                }
+                if ((item.X > 5) && (item.X <= 20))
+                {
+                    dvadzat++;
+                }
+                if ((item.X > 20) && (item.X <= 40))
+                {
+                    sorok++;
+                }
+                if ((item.X > 40) && (item.X <= 60))
+                {
+                    sestdesyat++;
+                }
+                if ((item.X > 60) && (item.X <= 80))
+                {
+                    vosemdesyat++;
+                }
+                if ((item.X > 80) && (item.X <= 95))
+                {
+                    devanostoPyat++;
+                }
+                if (item.X > 95)
+                {
+                    sto++;
+                }
             }
+            listReport = new List<int>() { listTopBotProc.Count, pyat, dvadzat, sorok, sestdesyat, vosemdesyat, devanostoPyat, sto };
+            string report = string.Format("All {0}| <=5 {1}|5-20 {2}|20-40 {3}|40-60 {4}|60-80 {5}|80-95 {6}|>95 {7}", listReport[0], listReport[1], listReport[2], listReport[3], listReport[4], listReport[5], listReport[6], listReport[7]);
+            if (textBoxFirst.Text == "0")
+            {
+                textBoxFirst.Text = report;
+            }
+            textBoxFirstNew.Text = report;
+        }
 
+        private void buttonToList_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxFirst.Text = "0";
         }
     }
 }

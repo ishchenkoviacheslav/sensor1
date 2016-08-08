@@ -8,12 +8,15 @@
     mc:Ignorable="d" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="267" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="262" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         <Button x:Name="startBtn" Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="75" Width="100" Background="Lime" Click="startBtn_Click"/>
         <Button x:Name="stopBtn" Content="Stop" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Height="75" Width="100" Background="Red" Click="stopBtn_Click"/>
         <Button x:Name="ShowBtn" Content="Show" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="50" Width="340" Click="ShowBtn_Click"/>
         <TextBox x:Name="textBoxTop" HorizontalAlignment="Left" Margin="185,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="267" Width="165" IsReadOnly="True" FontSize="12" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Button x:Name="buttonProc" Content="makeProcent" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Height="75" Width="130" Click="button_Click"/>
+        <TextBox x:Name="textBoxFirst" HorizontalAlignment="Left" Margin="10,412,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="64" Width="340"/>
+        <Button x:Name="buttonToList" Content="reset" HorizontalAlignment="Left" Margin="10,476,0,0" VerticalAlignment="Top" Width="340" Click="buttonToList_Click"/>
+        <TextBox x:Name="textBoxFirstNew" HorizontalAlignment="Left" Margin="10,513,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="64" Width="340"/>
 
     </Grid>
 </Page>
